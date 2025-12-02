@@ -1,0 +1,281 @@
+// "use client";
+// import { motion } from "framer-motion";
+// import { ArrowUpRight } from "lucide-react"; // Make sure to install lucide-react if not present
+
+// const platforms = [
+//   {
+//     name: "Famto",
+//     description: "Best Prices & Exclusive Offers",
+//     color: "from-cyan-600 to-cyan-500", // Famto Brand Gradient
+//     shadow: "shadow-cyan-500/20",
+//     link: "https://famto.in", // Replace with actual link
+//     isFeatured: true, // Highlights Famto
+//     logoFallback: "F"
+//   },
+//   {
+//     name: "Swiggy",
+//     description: "Fast Delivery to your Doorstep",
+//     color: "from-orange-600 to-orange-400", // Swiggy Orange
+//     shadow: "shadow-orange-500/20",
+//     link: "#",
+//     isFeatured: false,
+//     logoFallback: "S"
+//   },
+//   {
+//     name: "Zomato",
+//     description: "Explore our Full Menu Online",
+//     color: "from-red-700 to-red-500", // Zomato Red
+//     shadow: "shadow-red-500/20",
+//     link: "#",
+//     isFeatured: false,
+//     logoFallback: "Z"
+//   }
+// ];
+
+// export default function DeliveryPartners() {
+//   return (
+//     <section className="relative w-full py-24 bg-[#0a0a0a] overflow-hidden">
+      
+//       {/* Background Ambience */}
+//       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[500px] bg-amber-500/5 blur-[120px] rounded-full pointer-events-none" />
+
+//       <div className="container mx-auto px-6 relative z-10">
+        
+//         {/* Section Header */}
+//         <div className="text-center mb-16">
+//           <motion.h2 
+//             initial={{ opacity: 0, y: 20 }}
+//             whileInView={{ opacity: 1, y: 0 }}
+//             viewport={{ once: true }}
+//             className="text-3xl md:text-5xl font-serif font-bold text-white mb-4"
+//           >
+//             Order Your Way
+//           </motion.h2>
+//           <motion.div 
+//             initial={{ opacity: 0, y: 20 }}
+//             whileInView={{ opacity: 1, y: 0 }}
+//             viewport={{ once: true }}
+//             transition={{ delay: 0.2 }}
+//             className="flex items-center justify-center gap-3 text-stone-400"
+//           >
+//             <span className="h-[1px] w-12 bg-stone-700"></span>
+//             <span className="uppercase tracking-widest text-sm">We Proudly Serve On</span>
+//             <span className="h-[1px] w-12 bg-stone-700"></span>
+//           </motion.div>
+//         </div>
+
+//         {/* Cards Grid */}
+//         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+//           {platforms.map((platform, index) => (
+//             <PlatformCard key={index} data={platform} index={index} />
+//           ))}
+//         </div>
+
+//       </div>
+//     </section>
+//   );
+// }
+
+// // --- INDIVIDUAL CARD COMPONENT ---
+// function PlatformCard({ data, index }) {
+//   return (
+//     <motion.a
+//       href={data.link}
+//       target="_blank"
+//       rel="noopener noreferrer"
+//       initial={{ opacity: 0, y: 30 }}
+//       whileInView={{ opacity: 1, y: 0 }}
+//       viewport={{ once: true }}
+//       transition={{ delay: index * 0.1 }}
+//       whileHover={{ y: -5 }}
+//       className={`group relative flex flex-col items-center justify-center p-8 rounded-3xl border border-white/10 bg-white/5 backdrop-blur-md overflow-hidden transition-colors duration-500 hover:border-white/20`}
+//     >
+      
+//       {/* Hover Gradient Background (Lights up with brand color) */}
+//       <div className={`absolute inset-0 bg-gradient-to-br ${data.color} opacity-0 group-hover:opacity-10 transition-opacity duration-500`} />
+      
+//       {/* Featured Badge (For Famto) */}
+//       {data.isFeatured && (
+//         <div className="absolute top-4 right-4 bg-amber-500/20 text-amber-400 text-[10px] font-bold px-3 py-1 rounded-full border border-amber-500/20">
+//           RECOMMENDED
+//         </div>
+//       )}
+
+//       {/* Logo Area */}
+//       <div className={`relative w-20 h-20 mb-6 rounded-2xl bg-[#151515] border border-white/10 flex items-center justify-center shadow-2xl ${data.shadow} group-hover:scale-110 transition-transform duration-500`}>
+//         {/* Replace this text with an <img> tag for actual logos */}
+//         <span className={`text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-br ${data.color}`}>
+//              {data.logoFallback}
+//         </span>
+//       </div>
+
+//       {/* Text Content */}
+//       <h3 className="text-2xl font-bold text-white mb-2">{data.name}</h3>
+//       <p className="text-stone-400 text-sm text-center mb-6">{data.description}</p>
+
+//       {/* Button */}
+//       <div className="flex items-center gap-2 text-sm font-semibold text-white group-hover:text-cyan-400 transition-colors">
+//         <span>Order Now</span>
+//         <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
+//       </div>
+
+//     </motion.a>
+//   );
+// }
+
+
+"use client";
+import { motion } from "framer-motion";
+import { ArrowUpRight } from "lucide-react";
+import { useState } from "react";
+
+const platforms = [
+  {
+    name: "Famto",
+    description: "Best Prices & Exclusive Offers",
+    color: "from-[#00CED1] to-[#00CED1]", // Card Gradient
+    sectionColor: "#00CED1", // Deep Cyan (Background)
+    shadow: "shadow-cyan-800",
+    link: "https://famto.in",
+    isFeatured: true,
+    logoFallback: "F"
+  },
+  {
+    name: "Swiggy",
+    description: "Fast Delivery to your Doorstep",
+    color: "from-orange-600 to-orange-500", // Card Gradient
+    sectionColor: "#FC8019", // Deep Orange (Background)
+    shadow: "shadow-orange-500/50",
+    link: "https://www.swiggy.com/",
+    isFeatured: false,
+    logoFallback: "S"
+  },
+  {
+    name: "Zomato",
+    description: "Explore our Full Menu Online",
+    color: "from-red-700 to-red-600", // Card Gradient
+    sectionColor: "#E23744", // Deep Red (Background)
+    shadow: "shadow-red-500/50",
+    link: "https://www.zomato.com",
+    isFeatured: false,
+    logoFallback: "Z"
+  }
+];
+
+export default function DeliveryPartners() {
+  // State to manage the background color of the whole section
+  const [activeColor, setActiveColor] = useState("#0a0a0a"); // Default Dark
+
+  return (
+    <motion.section 
+      // Animate the background color of the entire section
+      animate={{ backgroundColor: activeColor }}
+      transition={{ duration: 0.5, ease: "easeInOut" }}
+      className="relative w-full py-24 overflow-hidden transition-colors"
+    >
+      
+      {/* Background Ambience (Optional: Hides/Fades when colored) */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[500px] bg-amber-500/5 blur-[120px] rounded-full pointer-events-none" />
+
+      <div className="container mx-auto px-6 relative z-10">
+        
+        {/* Section Header */}
+        <div className="text-center mb-16">
+          <motion.h2 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-3xl md:text-5xl font-serif font-bold text-white mb-4"
+          >
+            Order Your Way
+          </motion.h2>
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2 }}
+            className="flex items-center justify-center gap-3 text-stone-400"
+          >
+            <span className="h-[1px] w-12 bg-stone-500/50"></span>
+            <span className="uppercase tracking-widest text-sm font-medium">We Proudly Serve On</span>
+            <span className="h-[1px] w-12 bg-stone-500/50"></span>
+          </motion.div>
+        </div>
+
+        {/* Cards Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+          {platforms.map((platform, index) => (
+            <PlatformCard 
+              key={index} 
+              data={platform} 
+              index={index} 
+              // Pass handlers to update parent state
+              onHoverStart={() => setActiveColor(platform.sectionColor)}
+              onHoverEnd={() => setActiveColor("#0a0a0a")}
+            />
+          ))}
+        </div>
+
+      </div>
+    </motion.section>
+  );
+}
+
+// --- INDIVIDUAL CARD COMPONENT ---
+function PlatformCard({ data, index, onHoverStart, onHoverEnd }) {
+  return (
+    <motion.a
+      href={data.link}
+      target="_blank"
+      rel="noopener noreferrer"
+      // Animation Props
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ delay: index * 0.1 }}
+      whileHover={{ y: -5 }}
+      // Event Handlers for Background Change
+      onMouseEnter={onHoverStart}
+      onMouseLeave={onHoverEnd}
+      
+      className={`group relative flex flex-col items-center justify-center p-8 rounded-3xl border border-white/10 bg-black/20 backdrop-blur-md overflow-hidden transition-all duration-500 hover:border-white/30 hover:shadow-2xl`}
+    >
+      
+      {/* CARD HOVER BACKGROUND (Gradient Fill) */}
+      <div className={`absolute inset-0 bg-gradient-to-br ${data.color} opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-in-out`} />
+      
+      {/* Featured Badge */}
+      {data.isFeatured && (
+        <div className="absolute top-4 right-4 z-20 bg-amber-500/20 text-amber-400 group-hover:text-white group-hover:bg-white/20 text-[10px] font-bold px-3 py-1 rounded-full border border-amber-500/20 group-hover:border-white/30 transition-colors">
+          RECOMMENDED
+        </div>
+      )}
+
+      {/* CONTENT WRAPPER */}
+      <div className="relative z-10 flex flex-col items-center w-full">
+
+        {/* Logo Area */}
+        <div className={`relative w-20 h-20 mb-6 rounded-2xl bg-[#151515] border border-white/10 flex items-center justify-center shadow-2xl ${data.shadow} group-hover:scale-110 group-hover:bg-black/20 group-hover:border-white/30 transition-all duration-500`}>
+            <span className={`text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-br ${data.color} group-hover:text-white group-hover:bg-none`}>
+                {data.logoFallback}
+            </span>
+        </div>
+
+        {/* Text Content */}
+        <h3 className="text-2xl font-bold text-white mb-2">{data.name}</h3>
+        
+        <p className="text-stone-400 text-sm text-center mb-6 group-hover:text-white/90 transition-colors duration-300">
+            {data.description}
+        </p>
+
+        {/* Button */}
+        <div className="flex items-center gap-2 text-sm font-semibold text-white group-hover:text-white transition-colors">
+            <span>Order Now</span>
+            <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
+        </div>
+
+      </div>
+
+    </motion.a>
+  );
+}
