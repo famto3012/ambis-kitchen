@@ -1,15 +1,18 @@
-// app/blog/[slug]/BlogPostDetailClient.jsx
 "use client";
+
 import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 import { ArrowLeft, Clock } from "lucide-react";
 import Link from "next/link";
+import { useRef } from "react";
 import CustomCursor from "../../components/CustomCursor";
 
-export default function BlogPostDetail({ params }) {
-  const resolvedParams = use(params);
-  const slug = resolvedParams.slug;
-  const post = blogData.find((p) => p.slug === slug);
+// Animation variants
+const fadeInUp = {
+  hidden: { opacity: 0, y: 40 },
+  show: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 50, damping: 20 } },
+};
 
+export default function BlogPostDetailClient({ post }) {
   const containerRef = useRef(null);
 
   // Scroll Parallax
@@ -19,21 +22,12 @@ export default function BlogPostDetail({ params }) {
   const scaleHero = useTransform(scrollYProgress, [0, 1], [1, 1.05]);
 
   // Progress Bar
-  const scaleX = useSpring(scrollYProgress, {
-    stiffness: 100,
-    damping: 30,
-    restDelta: 0.001,
-  });
-
-  if (!post)
-    return (
-      <div className="text-white text-center pt-40">Post not found</div>
-    );
+  const scaleX = useSpring(scrollYProgress, { stiffness: 100, damping: 30, restDelta: 0.001 });
 
   return (
     <article className="bg-[#050505] min-h-screen text-stone-200 relative overflow-hidden selection:bg-amber-500/30 cursor-none">
-
       <CustomCursor />
+
       {/* Top Progress Bar */}
       <motion.div
         className="fixed top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-amber-700 via-amber-500 to-yellow-400 origin-left z-50 shadow-[0_0_15px_rgba(245,158,11,0.5)]"
@@ -43,76 +37,32 @@ export default function BlogPostDetail({ params }) {
       {/* Grain Texture */}
       <div
         className="fixed inset-0 pointer-events-none z-40 opacity-[0.03] mix-blend-overlay"
-        style={{
-          backgroundImage:
-            'url("https://grainy-gradients.vercel.app/noise.svg")',
-        }}
+        style={{ backgroundImage: 'url("https://grainy-gradients.vercel.app/noise.svg")' }}
       ></div>
 
-      {/* Moving Ambient Lights */}
+      {/* Ambient Lights */}
       <div className="fixed inset-0 pointer-events-none">
         <motion.div
-          animate={{
-            x: [0, 100, 0],
-            y: [0, -50, 0],
-            opacity: [0.3, 0.5, 0.3],
-          }}
+          animate={{ x: [0, 100, 0], y: [0, -50, 0], opacity: [0.3, 0.5, 0.3] }}
           transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
           className="absolute top-0 right-0 w-[600px] h-[600px] bg-amber-900/20 blur-[150px] rounded-full"
         />
         <motion.div
-          animate={{
-            x: [0, -100, 0],
-            y: [0, 50, 0],
-            opacity: [0.1, 0.3, 0.1],
-          }}
-          transition={{
-            duration: 15,
-            repeat: Infinity,
-            delay: 2,
-            ease: "easeInOut",
-          }}
+          animate={{ x: [0, -100, 0], y: [0, 50, 0], opacity: [0.1, 0.3, 0.1] }}
+          transition={{ duration: 15, repeat: Infinity, delay: 2, ease: "easeInOut" }}
           className="absolute bottom-0 left-0 w-[800px] h-[800px] bg-blue-900/10 blur-[180px] rounded-full"
         />
       </div>
 
-      {/* ---------------- HERO SECTION ---------------- */}
-      <div
-        ref={containerRef}
-        className="relative h-[65vh] w-full flex items-end md:items-center pb-10"
-      >
-        {/* Parallax Image */}
-        <motion.div
-          style={{ y: yHero, opacity: opacityHero, scale: scaleHero }}
-          className="absolute inset-0 z-0"
-        >
-          <img
-            src={post.image}
-            alt={post.title}
-            className="w-full h-full object-cover"
-          />
-
-          {/* <Image
-            src={post.image}
-            alt="Hero"
-            priority
-            className="w-full h-full object-cover"
-            width={1920}
-            height={1080}
-            sizes="100vw"
-            quality={80}
-          /> */}
-
+      {/* HERO SECTION */}
+      <div ref={containerRef} className="relative h-[65vh] w-full flex items-end md:items-center pb-10">
+        <motion.div style={{ y: yHero, opacity: opacityHero, scale: scaleHero }} className="absolute inset-0 z-0">
+          <img src={post.image} alt={post.title} className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-[#050505]/40 to-transparent" />
         </motion.div>
 
-        {/* Hero Text */}
         <div className="container mx-auto px-6 relative z-20 pt-40">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-          >
+          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
             {/* Back Button */}
             <Link
               href="/blog"
@@ -127,31 +77,23 @@ export default function BlogPostDetail({ params }) {
                 {post.category}
               </span>
               <span className="flex items-center gap-2 text-stone-300 text-sm font-medium bg-black/40 px-3 py-1 rounded-full backdrop-blur-md border border-white/10">
-                <Clock className="w-4 h-4 text-amber-500" />
-                {post.readTime}
+                <Clock className="w-4 h-4 text-amber-500" /> {post.readTime}
               </span>
             </div>
 
             {/* Title */}
-            <h1 className="text-5xl md:text-4xl lg:text-6xl font-serif font-bold text-white leading-[1] drop-shadow-2xl" >
+            <h1 className="text-5xl md:text-4xl lg:text-6xl font-serif font-bold text-white leading-[1] drop-shadow-2xl">
               {post.title}
             </h1>
           </motion.div>
         </div>
       </div>
 
-      {/* ---------------- MAIN CONTENT ---------------- */}
+      {/* MAIN CONTENT */}
       <div className="container mx-auto px-6 py-20 relative z-10">
-        <motion.div
-          initial="hidden"
-          whileInView="show"
-          variants={fadeInUp}
-          viewport={{ once: true }}
-          className="relative bg-white/[0.02] backdrop-blur-sm border border-white/5 rounded-3xl p-8 md:p-12 lg:p-16 shadow-2xl"
-        >
+        <motion.div initial="hidden" whileInView="show" variants={fadeInUp} viewport={{ once: true }} className="relative bg-white/[0.02] backdrop-blur-sm border border-white/5 rounded-3xl p-8 md:p-12 lg:p-16 shadow-2xl">
           <div className="absolute top-0 left-10 right-10 h-[1px] bg-gradient-to-r from-transparent via-amber-500/50 to-transparent"></div>
 
-          {/* Blog Content */}
           <div
             className="prose prose-invert prose-lg md:prose-xl max-w-none
               prose-headings:font-serif prose-headings:text-amber-500
@@ -162,7 +104,7 @@ export default function BlogPostDetail({ params }) {
               prose-blockquote:border-l-4 prose-blockquote:border-amber-500 prose-blockquote:bg-amber-500/10
               prose-blockquote:py-6 prose-blockquote:px-8 prose-blockquote:rounded-r-xl
             "
-            style={{ fontFamily: 'Poppins, sans-serif' }}
+            style={{ fontFamily: "Poppins, sans-serif" }}
           >
             <div dangerouslySetInnerHTML={{ __html: post.content }} />
           </div>
@@ -170,14 +112,10 @@ export default function BlogPostDetail({ params }) {
           {/* Signature */}
           <div className="mt-16 pt-12 border-t border-white/10 flex items-center justify-between">
             <div>
-              <p className="font-serif text-2xl text-white italic">
-                Ambi’s Kitchen
-              </p>
+              <p className="font-serif text-2xl text-white italic">Ambi’s Kitchen</p>
               <p className="text-stone-500 text-sm">Serving Tradition Since 2020</p>
             </div>
-            <div className="font-handwriting text-4xl text-amber-500/50 rotate-[-5deg]">
-              Chef Ambi
-            </div>
+            <div className="font-handwriting text-4xl text-amber-500/50 rotate-[-5deg]">Chef Ambi</div>
           </div>
         </motion.div>
       </div>

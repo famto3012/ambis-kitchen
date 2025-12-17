@@ -1,3 +1,6 @@
+// /data/page.js
+import React from "react";
+
 export const blogData = [
   {
     id: 1,
@@ -11,7 +14,7 @@ export const blogData = [
     image: "/images/ambi.png",
     author: "Chef Ambi",
     isFeatured: true,
-   content: `
+    content: `
       <p class="lead">
         In a world where fast food and rushed lifestyles dominate, finding clean, 
         comforting, <strong>homemade food in Trivandrum</strong> has become a real challenge. 
@@ -114,217 +117,213 @@ export const blogData = [
       </strong></p>
     `,
   },
-
-{
-  id: 2,
-  slug: "attukal-pongala-paal-payasam-seva",
-  title: "Ambi’s Kitchen Serves Free Paal Payasam to Thousands of Devotees During Attukal Pongala – A Heartfelt Story of Seva, Faith & Community",
-  excerpt:
-    "During the world’s largest gathering of women, Attukal Pongala, Ambi’s Kitchen offered free Paal Payasam to thousands of devotees. Here is the full story behind this beautiful act of devotion and community service.",
-  date: "Dec 01, 2025",
-  readTime: "22 min read",
-  category: "Featured",
-  image: "/images/attukal.jpeg",
-  author: "Chef Ambi",
-  isFeatured: false,
-
-  content: `
-    <p class="lead">
-      Attukal Pongala is not just a festival. It is an emotion, a movement, a spiritual 
-      phenomenon that transforms Thiruvananthapuram into the world’s largest gathering of 
-      women. In the middle of this sacred celebration, <strong>Ambi’s Kitchen</strong> 
-      stepped forward with a gesture rooted in kindness — serving <strong>FREE Paal 
-      Payasam</strong> to every devotee passing by. This is the complete story of that 
-      extraordinary day, the devotion behind it, and why it became one of the most 
-      heartwarming events of the festival.
-    </p>
+  {
+    id: 2,
+    slug: "attukal-pongala-paal-payasam-seva",
+    title: "Ambi’s Kitchen Serves Free Paal Payasam to Thousands of Devotees During Attukal Pongala – A Heartfelt Story of Seva, Faith & Community",
+    excerpt:
+      "During the world’s largest gathering of women, Attukal Pongala, Ambi’s Kitchen offered free Paal Payasam to thousands of devotees. Here is the full story behind this beautiful act of devotion and community service.",
+    date: "Dec 01, 2025",
+    readTime: "22 min read",
+    category: "Featured",
+    image: "/images/attukal.jpeg",
+    author: "Chef Ambi",
+    isFeatured: false,
+    content: `
+      <p class="lead">
+        Attukal Pongala is not just a festival. It is an emotion, a movement, a spiritual 
+        phenomenon that transforms Thiruvananthapuram into the world’s largest gathering of 
+        women. In the middle of this sacred celebration, <strong>Ambi’s Kitchen</strong> 
+        stepped forward with a gesture rooted in kindness — serving <strong>FREE Paal 
+        Payasam</strong> to every devotee passing by. This is the complete story of that 
+        extraordinary day, the devotion behind it, and why it became one of the most 
+        heartwarming events of the festival.
+      </p>
 <br />
-    <h2>🌸 What Makes Attukal Pongala the World’s Largest Women Gathering?</h2>
-    <p>
-      Every year, millions of women gather around Attukal Bhagavathy Temple. Roads close, 
-      houses open their compounds, and the entire city becomes a sacred cooking space. 
-      Devotees come from across India — Tamil Nadu, Karnataka, Hyderabad, Mumbai, Gulf 
-      returnees, and even foreigners who wish to witness something divine.
-    </p>
+      <h2>🌸 What Makes Attukal Pongala the World’s Largest Women Gathering?</h2>
+      <p>
+        Every year, millions of women gather around Attukal Bhagavathy Temple. Roads close, 
+        houses open their compounds, and the entire city becomes a sacred cooking space. 
+        Devotees come from across India — Tamil Nadu, Karnataka, Hyderabad, Mumbai, Gulf 
+        returnees, and even foreigners who wish to witness something divine.
+      </p>
 
-    <p>
-      There is no VIP, no class, no caste, no rich or poor. Every woman sits together on 
-      the ground, lights her chulha, and prepares the Pongala offering — a symbol of 
-      devotion, surrender, protection, and gratitude to Attukal Amma.
-    </p>
+      <p>
+        There is no VIP, no class, no caste, no rich or poor. Every woman sits together on 
+        the ground, lights her chulha, and prepares the Pongala offering — a symbol of 
+        devotion, surrender, protection, and gratitude to Attukal Amma.
+      </p>
 
-    <p>
-      It is in this powerful atmosphere of devotion that Ambi’s Kitchen decided to do 
-      something meaningful for thousands who walk tirelessly in the sun.
-    </p>
+      <p>
+        It is in this powerful atmosphere of devotion that Ambi’s Kitchen decided to do 
+        something meaningful for thousands who walk tirelessly in the sun.
+      </p>
 <br />
 
-    <h2>🥛 The Birth of an Idea: “Let’s Serve Payasam to Devotees”</h2>
-    <p>
-      A week before Pongala, conversations inside Ambi’s Kitchen began revolving around 
-      one idea: <strong>What can we do for the devotees?</strong> It wasn’t a business plan. 
-      It wasn’t a promotional thought. It was a feeling — a desire to offer something to 
-      Attukal Amma’s devotees with love.
-    </p>
+      <h2>🥛 The Birth of an Idea: “Let’s Serve Payasam to Devotees”</h2>
+      <p>
+        A week before Pongala, conversations inside Ambi’s Kitchen began revolving around 
+        one idea: <strong>What can we do for the devotees?</strong> It wasn’t a business plan. 
+        It wasn’t a promotional thought. It was a feeling — a desire to offer something to 
+        Attukal Amma’s devotees with love.
+      </p>
 
-    <p>
-      After discussions, the team agreed that nothing is purer, sweeter, or more 
-      universally loved than <strong>Paal Payasam</strong>. It is simple, divine, and 
-      traditionally connected to blessings.
-    </p>
+      <p>
+        After discussions, the team agreed that nothing is purer, sweeter, or more 
+        universally loved than <strong>Paal Payasam</strong>. It is simple, divine, and 
+        traditionally connected to blessings.
+      </p>
 
-    <p>
-      And thus, the message was decided:
-      <strong>“On Pongala day, Ambi’s Kitchen will serve FREE Paal Payasam.”</strong>
-    </p>
+      <p>
+        And thus, the message was decided:
+        <strong>“On Pongala day, Ambi’s Kitchen will serve FREE Paal Payasam.”</strong>
+      </p>
 <br />
 
-    <h2>⚡ Preparation Begins: A Massive Yet Heartfelt Effort</h2>
-    <p>
-      Preparing payasam for so many people is not easy. But the team was determined. 
-      Fresh milk was sourced at Dawn. The highest quality raw rice was used. Sugar, 
-      cardamom, and ghee were measured with care. Clean vessels were arranged in rows. 
-      It wasn’t just cooking. It was a ritual performed with devotion.
-    </p>
+      <h2>⚡ Preparation Begins: A Massive Yet Heartfelt Effort</h2>
+      <p>
+        Preparing payasam for so many people is not easy. But the team was determined. 
+        Fresh milk was sourced at Dawn. The highest quality raw rice was used. Sugar, 
+        cardamom, and ghee were measured with care. Clean vessels were arranged in rows. 
+        It wasn’t just cooking. It was a ritual performed with devotion.
+      </p>
 
-    <p>
-      The kitchen was filled with the fragrance of boiling milk. Some stirred 
-      continuously for hours. Others ensured hygiene and serving readiness. Everyone 
-      worked with a smile because this wasn’t just food — it was seva.
-    </p>
+      <p>
+        The kitchen was filled with the fragrance of boiling milk. Some stirred 
+        continuously for hours. Others ensured hygiene and serving readiness. Everyone 
+        worked with a smile because this wasn’t just food — it was seva.
+      </p>
 <br />
 
-    <h2>🔥 Pongala Morning: A Divine Scene Unfolds</h2>
-    <p>
-      As dawn broke, devotees began pouring into the streets. Lakhs of women sat together 
-      on the ground. The sound of prayers, temple bells, and chanting filled the air. 
-      The roads became holy spaces glowing with clay pots and fire.
-    </p>
+      <h2>🔥 Pongala Morning: A Divine Scene Unfolds</h2>
+      <p>
+        As dawn broke, devotees began pouring into the streets. Lakhs of women sat together 
+        on the ground. The sound of prayers, temple bells, and chanting filled the air. 
+        The roads became holy spaces glowing with clay pots and fire.
+      </p>
 
-    <p>
-      And just as the sun began rising, Ambi’s Kitchen opened its serving counter with a 
-      humble board:
-      <strong>“Free Paal Payasam for All Devotees.”</strong>
-    </p>
+      <p>
+        And just as the sun began rising, Ambi’s Kitchen opened its serving counter with a 
+        humble board:
+        <strong>“Free Paal Payasam for All Devotees.”</strong>
+      </p>
 <br />
 
-    <h2>🙏 The First Devotees Arrive</h2>
-    <p>
-      The first woman who approached was elderly. She was tired, sweating, and looking 
-      for shade. When she received the first cup of payasam, her hands trembled — not 
-      from weakness, but from gratitude. She took a sip, closed her eyes, and said:
-    </p>
-    <blockquote>
-      “Mole… this is prasadam. May Amma bless you all.”
-    </blockquote>
+      <h2>🙏 The First Devotees Arrive</h2>
+      <p>
+        The first woman who approached was elderly. She was tired, sweating, and looking 
+        for shade. When she received the first cup of payasam, her hands trembled — not 
+        from weakness, but from gratitude. She took a sip, closed her eyes, and said:
+      </p>
+      <blockquote>
+        “Mole… this is prasadam. May Amma bless you all.”
+      </blockquote>
 
-    <p>
-      And just like that, a stream of devotees began arriving. Some walked miles. Some 
-      carried their Pongala pots. Some had young children with them. But no one left 
-      without a smile.
-    </p>
+      <p>
+        And just like that, a stream of devotees began arriving. Some walked miles. Some 
+        carried their Pongala pots. Some had young children with them. But no one left 
+        without a smile.
+      </p>
 <br />
 
-    <h2>❤️ The Emotions Were More Beautiful Than the Payasam</h2>
-    <p>
-      Women prayed for the team. Some hugged the volunteers. Some took extra cups “for 
-      their sister sitting down the lane.” Many returned just to thank the staff. It 
-      created a circle of love, kindness, and blessings.
-    </p>
+      <h2>❤️ The Emotions Were More Beautiful Than the Payasam</h2>
+      <p>
+        Women prayed for the team. Some hugged the volunteers. Some took extra cups “for 
+        their sister sitting down the lane.” Many returned just to thank the staff. It 
+        created a circle of love, kindness, and blessings.
+      </p>
 
-    <p>
-      Ambi’s Kitchen did not expect this response. They did not expect tears, blessings, 
-      or the emotional stories devotees shared. Every moment felt sacred.
-    </p>
+      <p>
+        Ambi’s Kitchen did not expect this response. They did not expect tears, blessings, 
+        or the emotional stories devotees shared. Every moment felt sacred.
+      </p>
 <br />
 
-    <h2>✨ Why This Gesture Stood Out Among Thousands of Pongala Services</h2>
-    <ul>
-      <li>It was 100% homemade — slow cooked like temple payasam.</li>
-      <li>No branding, no advertisement — pure service.</li>
-      <li>Served with devotion and respect, not for profit.</li>
-      <li>Hygienic preparation ensured safety for everyone.</li>
-      <li>Given exactly when devotees needed hydration and energy.</li>
-      <li>Everyone was treated equally — children, elders, workers, all.</li>
-    </ul>
+      <h2>✨ Why This Gesture Stood Out Among Thousands of Pongala Services</h2>
+      <ul>
+        <li>It was 100% homemade — slow cooked like temple payasam.</li>
+        <li>No branding, no advertisement — pure service.</li>
+        <li>Served with devotion and respect, not for profit.</li>
+        <li>Hygienic preparation ensured safety for everyone.</li>
+        <li>Given exactly when devotees needed hydration and energy.</li>
+        <li>Everyone was treated equally — children, elders, workers, all.</li>
+      </ul>
 <br />
 
-    <h2>🌿 Voices From the Crowd: What Devotees Said</h2>
-    <p>
-      Hundreds shared their experiences:
-    </p>
-    <ul>
-      <li>“Feels like temple prasadam.”</li>
-      <li>“We didn’t expect this kindness.”</li>
-      <li>“After cooking for hours, this was a blessing.”</li>
-      <li>“Amma will bless you richly.”</li>
-    </ul>
+      <h2>🌿 Voices From the Crowd: What Devotees Said</h2>
+      <p>
+        Hundreds shared their experiences:
+      </p>
+      <ul>
+        <li>“Feels like temple prasadam.”</li>
+        <li>“We didn’t expect this kindness.”</li>
+        <li>“After cooking for hours, this was a blessing.”</li>
+        <li>“Amma will bless you richly.”</li>
+      </ul>
 <br />
 
-    <h2>💚 Community Members Joined the Service</h2>
-    <p>
-      Something magical happened — passers-by began volunteering. Young boys helped pour 
-      payasam. Women distributed cups. Local residents offered water. Pedestrians 
-      assisted senior devotees. The service turned into a community movement.
-    </p>
+      <h2>💚 Community Members Joined the Service</h2>
+      <p>
+        Something magical happened — passers-by began volunteering. Young boys helped pour 
+        payasam. Women distributed cups. Local residents offered water. Pedestrians 
+        assisted senior devotees. The service turned into a community movement.
+      </p>
 
-    <p>
-      It became more than a stall — it became a spiritual memory.
-    </p>
+      <p>
+        It became more than a stall — it became a spiritual memory.
+      </p>
 <br />
 
-    <h2>🔥 The Team’s Experience: “This Gave Us More Joy Than Business Ever Could”</h2>
-    <p>
-      At the end of the day, when the payasam finished, the team did not feel tired. 
-      They felt fulfilled. There was peace in their hearts. There was satisfaction that 
-      cannot be bought with money.
-    </p>
+      <h2>🔥 The Team’s Experience: “This Gave Us More Joy Than Business Ever Could”</h2>
+      <p>
+        At the end of the day, when the payasam finished, the team did not feel tired. 
+        They felt fulfilled. There was peace in their hearts. There was satisfaction that 
+        cannot be bought with money.
+      </p>
 
-    <p>
-      Many staff members said:
-    </p>
-    <blockquote>
-      “On this Pongala, we didn’t cook food. We cooked blessings.”
-    </blockquote>
+      <p>
+        Many staff members said:
+      </p>
+      <blockquote>
+        “On this Pongala, we didn’t cook food. We cooked blessings.”
+      </blockquote>
 <br />
 
-    <h2>🌺 A Promise for the Future</h2>
-    <p>
-      The overwhelming response led to a beautiful decision:
-      <strong>
-        From now on, every Attukal Pongala, Ambi’s Kitchen will serve free Paal Payasam 
-        to devotees.
-      </strong>
-    </p>
+      <h2>🌺 A Promise for the Future</h2>
+      <p>
+        The overwhelming response led to a beautiful decision:
+        <strong>
+          From now on, every Attukal Pongala, Ambi’s Kitchen will serve free Paal Payasam 
+          to devotees.
+        </strong>
+      </p>
 
-    <p>
-      Not as a brand. Not as a business.  
-      But as a devotee offering seva to other devotees.
-    </p>
+      <p>
+        Not as a brand. Not as a business.  
+        But as a devotee offering seva to other devotees.
+      </p>
 <br />
 
-    <h2>🌟 Final Thoughts: A Festival, A Kitchen & A Thousand Blessings</h2>
-    <p>
-      Attukal Pongala teaches us devotion.  
-      But Ambi’s Kitchen reminded us of something just as important:
-      <strong>kindness</strong>.
-    </p>
+      <h2>🌟 Final Thoughts: A Festival, A Kitchen & A Thousand Blessings</h2>
+      <p>
+        Attukal Pongala teaches us devotion.  
+        But Ambi’s Kitchen reminded us of something just as important:
+        <strong>kindness</strong>.
+      </p>
 
-    <p>
-      A simple act — a cup of payasam — became the day’s sweetest blessing for thousands 
-      of devotees. And for Ambi’s Kitchen, the blessings they received were worth far 
-      more than any sale or profit.
-    </p>
+      <p>
+        A simple act — a cup of payasam — became the day’s sweetest blessing for thousands 
+        of devotees. And for Ambi’s Kitchen, the blessings they received were worth far 
+        more than any sale or profit.
+      </p>
 
-    <p><strong>
-      Devotion is powerful.  
-      But devotion shared with love becomes divine.
-    </strong></p>
-  `,
-},
-
-
-{
+      <p><strong>
+        Devotion is powerful.  
+        But devotion shared with love becomes divine.
+      </strong></p>
+    `,
+  },
+  {
   id: 3,
   slug: "healthy-homemade-meals",
   title: "Why Homemade Food Is Better for Your Health – The Ambi’s Kitchen Way",
@@ -671,4 +670,364 @@ export const blogData = [
   `,
 }
 
+  // id 3 and id 4 content would follow exactly like in your original post
 ];
+
+export default function DataPage() {
+  return (
+    <div className="p-8 max-w-4xl mx-auto">
+      <h1 className="text-4xl font-bold mb-8">Blog Posts</h1>
+      {blogData.map((blog) => (
+        <div key={blog.id} className="mb-12 border-b pb-6">
+          <h2 className="text-2xl font-semibold mb-2">{blog.title}</h2>
+          <p className="text-gray-600 mb-1">{blog.excerpt}</p>
+          <p className="text-sm text-gray-400 mb-4">
+            {blog.date} • {blog.readTime} • {blog.category} • By {blog.author}
+          </p>
+          {blog.image && (
+            <img
+              src={blog.image}
+              alt={blog.title}
+              className="w-full max-h-80 object-cover mb-4 rounded"
+            />
+          )}
+          <div
+            className="prose max-w-full"
+            dangerouslySetInnerHTML={{ __html: blog.content }}
+          />
+        </div>
+      ))}
+    </div>
+  );
+}
+
+
+
+// export const blogData = [
+//   {
+//     id: 1,
+//     slug: "authentic-homemade-food-trivandrum",
+//     title: "Ambi’s Kitchen – The Heart of Authentic Homemade Food in Trivandrum",
+//     excerpt:
+//       "Discover how Ambi’s Kitchen brings fresh, homemade, authentic Kerala food to your doorstep with love, tradition, and purity.",
+//     date: "Nov 30, 2025",
+//     readTime: "10 min read",
+//     category: "Featured",
+//     image: "/images/ambi.png",
+//     author: "Chef Ambi",
+//     isFeatured: true,
+//    content: `
+//       <p class="lead">
+//         In a world where fast food and rushed lifestyles dominate, finding clean, 
+//         comforting, <strong>homemade food in Trivandrum</strong> has become a real challenge. 
+//         This is exactly why <strong>Ambi’s Kitchen</strong> was created — to bring back the warmth, purity, 
+//         and emotional comfort of home-cooked meals.
+//       </p>
+
+//       <p>
+//         Whether you're a student missing home-cooked meals, a working professional too 
+//         busy to cook, or someone who simply enjoys traditional Kerala flavors, 
+//         Ambi’s Kitchen promises a food experience that feels like family.
+//       </p>
+// <br />
+
+//       <h2>🌿 The Story Behind Ambi’s Kitchen</h2>
+//       <p>
+//         Ambi’s Kitchen started with one simple mission — <strong>to serve food that brings people 
+//         back to the comfort of home</strong>. What began as a small home kitchen has now become one of 
+//         Trivandrum’s most trusted homemade food destinations.
+//       </p>
+
+//       <blockquote>
+//         “Good food doesn’t need luxury. It needs love.  
+//         At Ambi’s Kitchen, every meal is prepared with the same care you’d use for your own family.”
+//       </blockquote>
+// <br />
+
+//       <h2>🍽️ What Makes Our Homemade Food Special?</h2>
+//       <ul>
+//         <li><strong>Authentic Kerala recipes</strong> passed down through generations.</li>
+//         <li><strong>No preservatives or artificial flavors</strong> — only fresh ingredients.</li>
+//         <li><strong>Slow cooking techniques</strong> to preserve natural taste.</li>
+//         <li><strong>Daily fresh meals</strong> prepared in a hygienic kitchen.</li>
+//         <li><strong>Affordable pricing</strong> so everyone can enjoy good food daily.</li>
+//       </ul>
+// <br />
+
+//       <h2>🍛 The Ambi’s Kitchen Menu Experience</h2>
+//       <p>
+//         Our menu brings a blend of comfort food and traditional Kerala dishes. 
+//         Each item is crafted to give a balance of taste, health, and satisfaction.
+//       </p>
+// <br />
+
+//       <h3>⭐ 1. Kerala-Style Meals</h3>
+//       <p>
+//         Our signature meals include rice, sambar, thoran, kootu curry, avial, 
+//         kichadi, pappadam, and homemade pickles. A complete traditional plate 
+//         that reminds you of festivals and family lunches.
+//       </p>
+// <br />
+
+//       <h3>⭐ 2. Healthy Homemade Lunch Boxes</h3>
+//       <p>
+//         Perfect for office-goers who need clean, light, and nutritious food. 
+//         Made with minimal oil and balanced spices.
+//       </p>
+// <br />
+
+//       <h3>⭐ 3. Special Desserts & Payasams</h3>
+//       <p>
+//         From <strong>Pink Palada</strong> made through slow reduction to 
+//         <strong>Ada Pradhaman</strong> and <strong>Semiya Payasam</strong>, 
+//         our sweets capture Kerala’s festive spirit.
+//       </p>
+// <br />
+
+//       <h2>💚 Why Homemade Food Is Better Than Restaurant Food</h2>
+//       <p>
+//         Restaurant food may satisfy cravings, but homemade food nourishes the body.  
+//         Ambi’s Kitchen ensures:
+//       </p>
+
+//       <ul>
+//         <li>Less oil, less spice — easy on the stomach</li>
+//         <li>Fresh vegetables and clean ingredients</li>
+//         <li>Better digestion and energy levels</li>
+//         <li>Safe for kids, elders, and health-conscious individuals</li>
+//       </ul>
+// <br />
+
+//       <h2>🚚 Fast & Hygienic Food Delivery Across Trivandrum</h2>
+//       <p>
+//         We deliver homemade meals across Trivandrum with professional packaging, 
+//         careful handling, and quick delivery times. Your food reaches you warm, 
+//         fresh, and ready to enjoy.
+//       </p>
+// <br />
+
+//       <h2>🌟 Final Thoughts</h2>
+//       <p>
+//         Ambi’s Kitchen is not just a food service — it’s a celebration of tradition, 
+//         simplicity, and genuine homemade taste.  
+//         Every dish tells a story of love, warmth, and Kerala’s cultural richness.
+//       </p>
+
+//       <p><strong>
+//         Fresh. Honest. Homemade.  
+//         That’s the promise of Ambi’s Kitchen.
+//       </strong></p>
+//     `,
+//   },
+
+// {
+//   id: 2,
+//   slug: "attukal-pongala-paal-payasam-seva",
+//   title: "Ambi’s Kitchen Serves Free Paal Payasam to Thousands of Devotees During Attukal Pongala – A Heartfelt Story of Seva, Faith & Community",
+//   excerpt:
+//     "During the world’s largest gathering of women, Attukal Pongala, Ambi’s Kitchen offered free Paal Payasam to thousands of devotees. Here is the full story behind this beautiful act of devotion and community service.",
+//   date: "Dec 01, 2025",
+//   readTime: "22 min read",
+//   category: "Featured",
+//   image: "/images/attukal.jpeg",
+//   author: "Chef Ambi",
+//   isFeatured: false,
+
+//   content: `
+//     <p class="lead">
+//       Attukal Pongala is not just a festival. It is an emotion, a movement, a spiritual 
+//       phenomenon that transforms Thiruvananthapuram into the world’s largest gathering of 
+//       women. In the middle of this sacred celebration, <strong>Ambi’s Kitchen</strong> 
+//       stepped forward with a gesture rooted in kindness — serving <strong>FREE Paal 
+//       Payasam</strong> to every devotee passing by. This is the complete story of that 
+//       extraordinary day, the devotion behind it, and why it became one of the most 
+//       heartwarming events of the festival.
+//     </p>
+// <br />
+//     <h2>🌸 What Makes Attukal Pongala the World’s Largest Women Gathering?</h2>
+//     <p>
+//       Every year, millions of women gather around Attukal Bhagavathy Temple. Roads close, 
+//       houses open their compounds, and the entire city becomes a sacred cooking space. 
+//       Devotees come from across India — Tamil Nadu, Karnataka, Hyderabad, Mumbai, Gulf 
+//       returnees, and even foreigners who wish to witness something divine.
+//     </p>
+
+//     <p>
+//       There is no VIP, no class, no caste, no rich or poor. Every woman sits together on 
+//       the ground, lights her chulha, and prepares the Pongala offering — a symbol of 
+//       devotion, surrender, protection, and gratitude to Attukal Amma.
+//     </p>
+
+//     <p>
+//       It is in this powerful atmosphere of devotion that Ambi’s Kitchen decided to do 
+//       something meaningful for thousands who walk tirelessly in the sun.
+//     </p>
+// <br />
+
+//     <h2>🥛 The Birth of an Idea: “Let’s Serve Payasam to Devotees”</h2>
+//     <p>
+//       A week before Pongala, conversations inside Ambi’s Kitchen began revolving around 
+//       one idea: <strong>What can we do for the devotees?</strong> It wasn’t a business plan. 
+//       It wasn’t a promotional thought. It was a feeling — a desire to offer something to 
+//       Attukal Amma’s devotees with love.
+//     </p>
+
+//     <p>
+//       After discussions, the team agreed that nothing is purer, sweeter, or more 
+//       universally loved than <strong>Paal Payasam</strong>. It is simple, divine, and 
+//       traditionally connected to blessings.
+//     </p>
+
+//     <p>
+//       And thus, the message was decided:
+//       <strong>“On Pongala day, Ambi’s Kitchen will serve FREE Paal Payasam.”</strong>
+//     </p>
+// <br />
+
+//     <h2>⚡ Preparation Begins: A Massive Yet Heartfelt Effort</h2>
+//     <p>
+//       Preparing payasam for so many people is not easy. But the team was determined. 
+//       Fresh milk was sourced at Dawn. The highest quality raw rice was used. Sugar, 
+//       cardamom, and ghee were measured with care. Clean vessels were arranged in rows. 
+//       It wasn’t just cooking. It was a ritual performed with devotion.
+//     </p>
+
+//     <p>
+//       The kitchen was filled with the fragrance of boiling milk. Some stirred 
+//       continuously for hours. Others ensured hygiene and serving readiness. Everyone 
+//       worked with a smile because this wasn’t just food — it was seva.
+//     </p>
+// <br />
+
+//     <h2>🔥 Pongala Morning: A Divine Scene Unfolds</h2>
+//     <p>
+//       As dawn broke, devotees began pouring into the streets. Lakhs of women sat together 
+//       on the ground. The sound of prayers, temple bells, and chanting filled the air. 
+//       The roads became holy spaces glowing with clay pots and fire.
+//     </p>
+
+//     <p>
+//       And just as the sun began rising, Ambi’s Kitchen opened its serving counter with a 
+//       humble board:
+//       <strong>“Free Paal Payasam for All Devotees.”</strong>
+//     </p>
+// <br />
+
+//     <h2>🙏 The First Devotees Arrive</h2>
+//     <p>
+//       The first woman who approached was elderly. She was tired, sweating, and looking 
+//       for shade. When she received the first cup of payasam, her hands trembled — not 
+//       from weakness, but from gratitude. She took a sip, closed her eyes, and said:
+//     </p>
+//     <blockquote>
+//       “Mole… this is prasadam. May Amma bless you all.”
+//     </blockquote>
+
+//     <p>
+//       And just like that, a stream of devotees began arriving. Some walked miles. Some 
+//       carried their Pongala pots. Some had young children with them. But no one left 
+//       without a smile.
+//     </p>
+// <br />
+
+//     <h2>❤️ The Emotions Were More Beautiful Than the Payasam</h2>
+//     <p>
+//       Women prayed for the team. Some hugged the volunteers. Some took extra cups “for 
+//       their sister sitting down the lane.” Many returned just to thank the staff. It 
+//       created a circle of love, kindness, and blessings.
+//     </p>
+
+//     <p>
+//       Ambi’s Kitchen did not expect this response. They did not expect tears, blessings, 
+//       or the emotional stories devotees shared. Every moment felt sacred.
+//     </p>
+// <br />
+
+//     <h2>✨ Why This Gesture Stood Out Among Thousands of Pongala Services</h2>
+//     <ul>
+//       <li>It was 100% homemade — slow cooked like temple payasam.</li>
+//       <li>No branding, no advertisement — pure service.</li>
+//       <li>Served with devotion and respect, not for profit.</li>
+//       <li>Hygienic preparation ensured safety for everyone.</li>
+//       <li>Given exactly when devotees needed hydration and energy.</li>
+//       <li>Everyone was treated equally — children, elders, workers, all.</li>
+//     </ul>
+// <br />
+
+//     <h2>🌿 Voices From the Crowd: What Devotees Said</h2>
+//     <p>
+//       Hundreds shared their experiences:
+//     </p>
+//     <ul>
+//       <li>“Feels like temple prasadam.”</li>
+//       <li>“We didn’t expect this kindness.”</li>
+//       <li>“After cooking for hours, this was a blessing.”</li>
+//       <li>“Amma will bless you richly.”</li>
+//     </ul>
+// <br />
+
+//     <h2>💚 Community Members Joined the Service</h2>
+//     <p>
+//       Something magical happened — passers-by began volunteering. Young boys helped pour 
+//       payasam. Women distributed cups. Local residents offered water. Pedestrians 
+//       assisted senior devotees. The service turned into a community movement.
+//     </p>
+
+//     <p>
+//       It became more than a stall — it became a spiritual memory.
+//     </p>
+// <br />
+
+//     <h2>🔥 The Team’s Experience: “This Gave Us More Joy Than Business Ever Could”</h2>
+//     <p>
+//       At the end of the day, when the payasam finished, the team did not feel tired. 
+//       They felt fulfilled. There was peace in their hearts. There was satisfaction that 
+//       cannot be bought with money.
+//     </p>
+
+//     <p>
+//       Many staff members said:
+//     </p>
+//     <blockquote>
+//       “On this Pongala, we didn’t cook food. We cooked blessings.”
+//     </blockquote>
+// <br />
+
+//     <h2>🌺 A Promise for the Future</h2>
+//     <p>
+//       The overwhelming response led to a beautiful decision:
+//       <strong>
+//         From now on, every Attukal Pongala, Ambi’s Kitchen will serve free Paal Payasam 
+//         to devotees.
+//       </strong>
+//     </p>
+
+//     <p>
+//       Not as a brand. Not as a business.  
+//       But as a devotee offering seva to other devotees.
+//     </p>
+// <br />
+
+//     <h2>🌟 Final Thoughts: A Festival, A Kitchen & A Thousand Blessings</h2>
+//     <p>
+//       Attukal Pongala teaches us devotion.  
+//       But Ambi’s Kitchen reminded us of something just as important:
+//       <strong>kindness</strong>.
+//     </p>
+
+//     <p>
+//       A simple act — a cup of payasam — became the day’s sweetest blessing for thousands 
+//       of devotees. And for Ambi’s Kitchen, the blessings they received were worth far 
+//       more than any sale or profit.
+//     </p>
+
+//     <p><strong>
+//       Devotion is powerful.  
+//       But devotion shared with love becomes divine.
+//     </strong></p>
+//   `,
+// },
+
+
+
+// ];

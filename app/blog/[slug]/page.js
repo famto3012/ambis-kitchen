@@ -1,22 +1,23 @@
-// app/blog/[slug]/page.js
 import { blogData } from "../../data/page";
-import BlogPostDetailClient from "./BlogPostDetailClient"; // new client component
+import BlogPostDetailClient from "./BlogPostDetailClient";
 
-export function generateStaticParams() {
+export async function generateStaticParams() {
   return blogData.map((post) => ({
     slug: post.slug,
   }));
 }
 
-export default function BlogPostDetail({ params }) {
-  const post = blogData.find((p) => p.slug === params.slug);
+export default async function BlogPostDetail({ params }) {
+  // params is now async
+  const { slug } = await params;  // <-- unwrap params
+  const post = blogData.find((p) => p.slug === slug);
 
-  if (!post) return <div className="text-white text-center pt-40">Post not found</div>;
+  if (!post) {
+    return <div className="text-white text-center pt-40">Post not found</div>;
+  }
 
-  // Pass post data to client component
   return <BlogPostDetailClient post={post} />;
 }
-
 
 
 // "use client";
