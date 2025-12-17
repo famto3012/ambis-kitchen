@@ -1,7 +1,7 @@
 
 
 import { Facebook, Instagram, InstagramIcon } from "lucide-react";
-
+import { FaWhatsapp } from "react-icons/fa";
 
 export default function Footer() {
     return (
@@ -29,7 +29,7 @@ export default function Footer() {
                 <div>
                     <h4 className="font-semibold text-stone-200 mb-4">Contact</h4>
                     <ul className="space-y-2 text-sm">
-                        <li className="text-stone-400">📞 +91 98952 16559</li>
+                        <li className="text-stone-400">📞 +91 7356222234</li>
                         <li className="text-stone-400">📧 ambiskitchen20@gmail.com</li>
                         <li className="text-stone-400">📍 Trivandrum, Kerala</li>
                     </ul>
@@ -60,6 +60,13 @@ export default function Footer() {
                             className="text-stone-400 hover:text-red-500 transition-colors"
                         >
                             <InstagramIcon size={24} /> {/* Adjust 'size' as needed */}
+                        </a>
+                        <a
+                            href="https://whatsapp.com/channel/0029VaAAv7UBVJl8Scch1h0L"
+                            aria-label="Whatsapp"
+                            className="text-stone-400 hover:text-red-500 transition-colors"
+                        >
+                            <FaWhatsapp size={24} /> {/* Adjust 'size' as needed */}
                         </a>
                     </div>
                 </div>

@@ -1,207 +1,5 @@
-// "use client";
-// import { useRef, useEffect } from "react";
-// import gsap from "gsap";
-// import { ScrollTrigger } from "gsap/ScrollTrigger";
-
-// gsap.registerPlugin(ScrollTrigger);
-
-// export default function PouringSection() {
-//   const containerRef = useRef(null);
-//   const streamRef = useRef(null);
-//   const splashRef = useRef(null);
-//   const turbulenceRef = useRef(null); // Ref to animate the liquid shape
-
-//   useEffect(() => {
-//     const ctx = gsap.context(() => {
-//       const tl = gsap.timeline({
-//         scrollTrigger: {
-//           trigger: containerRef.current,
-//           start: "top top",
-//           end: "+=150%",
-//           pin: true,
-//           scrub: 0.1, // Faster reaction
-//           onUpdate: (self) => {
-//             // --- THE MAGIC FIX ---
-//             // We change the 'baseFrequency' of the noise filter as you scroll.
-//             // This makes the liquid edges ripple and morph live!
-//             if (turbulenceRef.current) {
-//                 // 0.01 is X (width wobble), the second number is Y (flow streaks)
-//                 const flowIntensity = 0.05 + (self.progress * 0.1); 
-//                 turbulenceRef.current.setAttribute("baseFrequency", `0.02 ${flowIntensity}`);
-//             }
-//           }
-//         },
-//       });
-
-//       // 1. Cup Tilt
-//       tl.to("#cup-img", {
-//         rotation: -50,
-//         x: -20,
-//         y: 10,
-//         duration: 1,
-//         ease: "power2.inOut",
-//       })
-
-//       // 2. The Pour (Stream Grows)
-//       .fromTo(
-//         streamRef.current,
-//         { height: 0, opacity: 0 },
-//         {
-//           height: "65vh", 
-//           opacity: 1,
-//           duration: 1,
-//           ease: "none",
-//         },
-//         "<0.2"
-//       )
-      
-//       // 3. Texture Flow (Very Fast)
-//       .to(
-//         streamRef.current,
-//         {
-//           backgroundPositionY: "1500px", // Increased speed
-//           duration: 2,
-//           ease: "none",
-//         },
-//         "<"
-//       )
-
-//       // 4. Splash
-//       .fromTo(
-//         splashRef.current,
-//         { scale: 0, opacity: 0 },
-//         {
-//           scale: 1.5,
-//           opacity: 1,
-//           duration: 0.3,
-//           ease: "back.out(1.7)",
-//         },
-//         ">-0.5"
-//       )
-
-//       // 5. Boli Squish
-//       .to("#boli-img", {
-//         scaleY: 0.9,
-//         scaleX: 1.05,
-//         y: 5,
-//         duration: 0.2
-//       }, "<");
-
-//     }, containerRef);
-
-//     return () => ctx.revert();
-//   }, []);
-
-//   return (
-//     <section
-//       ref={containerRef}
-//       className="relative h-screen w-full bg-[#050200] overflow-hidden flex flex-col items-center justify-between py-10"
-//     >
-//       {/* SVG LIQUID ENGINE */}
-//       <svg className="absolute w-0 h-0">
-//         <defs>
-//           <filter id="liquid-filter">
-//             {/* The turbulence creates the random liquid noise */}
-//             <feTurbulence 
-//                 ref={turbulenceRef}
-//                 type="turbulence" // 'turbulence' looks more liquidy than 'fractalNoise'
-//                 baseFrequency="0.02 0.05" 
-//                 numOctaves="2" 
-//                 result="noise" 
-//             />
-//             {/* The displacement map uses that noise to warp the div */}
-//             <feDisplacementMap 
-//                 in="SourceGraphic" 
-//                 in2="noise" 
-//                 scale="30" // HIGH SCALE = Very wavy edges (No straight lines)
-//                 xChannelSelector="R" 
-//                 yChannelSelector="G" 
-//             />
-//             {/* Blur slightly to make it look like thick milk */}
-//             <feGaussianBlur stdDeviation="1.5" />
-//           </filter>
-//         </defs>
-//       </svg>
-
-//       {/* --- CUP --- */}
-//       <div className="relative z-50 mt-16">
-//         <div id="cup-img" className="origin-top-right w-40 md:w-52 relative translate-x-4">
-//            <img 
-//              src="/images/cup.png" 
-//              alt="Cup" 
-//              className="w-full h-full object-contain drop-shadow-2xl" 
-//            />
-//         </div>
-//       </div>
-
-//       {/* --- THE LIQUID STREAM --- */}
-//       <div className="absolute top-[180px] md:top-[240px] z-40 flex justify-center w-full pointer-events-none">
-//         <div
-//           ref={streamRef}
-//           className="w-16 md:w-20"
-//           style={{
-//             height: 0,
-            
-//             // 1. TAPER (Thick top, thin bottom)
-//             clipPath: "polygon(5% 0, 95% 0, 70% 100%, 30% 100%)",
-
-//             // 2. TEXTURE (Zoomed)
-//             backgroundColor: "#fdf0d5",
-//             backgroundImage: "url('/images/payasam-texture.jpg')",
-//             backgroundSize: "250% auto", 
-//             backgroundPosition: "center top",
-//             backgroundRepeat: "repeat-y",
-
-//             // 3. APPLY ANIMATED FILTER
-//             filter: "url(#liquid-filter)",
-            
-//             // 4. SOFT EDGES (Fading the sides)
-//             // This mask makes the left and right edges transparent, 
-//             // so there is no hard "line" at all.
-//             maskImage: "linear-gradient(to right, transparent 0%, black 20%, black 80%, transparent 100%)",
-//             WebkitMaskImage: "linear-gradient(to right, transparent 0%, black 20%, black 80%, transparent 100%)",
-            
-//             // 5. INNER GLOW (3D Effect)
-//             boxShadow: "inset 0 0 20px rgba(0,0,0,0.5)"
-//           }}
-//         ></div>
-//       </div>
-
-//       {/* --- SPLASH & BOLI --- */}
-//       <div className="relative z-30 top-28 mb-20 flex flex-col items-center justify-center">
-        
-//         {/* Splash Box */}
-//         <div 
-//             ref={splashRef}
-//             className="absolute -top-20 w-56 h-56 z-50 pointer-events-none"
-//             style={{
-//                 mixBlendMode: "screen", 
-//                 maskImage: "radial-gradient(circle, rgba(0,0,0,1) 40%, rgba(0,0,0,0) 80%)",
-//                 WebkitMaskImage: "radial-gradient(circle, rgba(0,0,0,1) 40%, rgba(0,0,0,0) 80%)"
-//             }}
-//         >
-//             <img 
-//                 src="/images/splash.png" 
-//                 alt="Splash" 
-//                 className="w-full h-full object-cover"
-//             />
-//         </div>
-
-//         {/* Boli */}
-//         <div id="boli-img" className="w-72 md:w-96 relative">
-//           <img
-//             src="/images/boli.png"
-//             alt="Boli"
-//             className="w-full h-full object-contain"
-//           />
-//         </div>
-//       </div>
-//     </section>
-//   );
-// }
-
 "use client";
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -210,65 +8,102 @@ gsap.registerPlugin(ScrollTrigger);
 export default function VideoScrollSection() {
   const containerRef = useRef(null);
   const videoRef = useRef(null);
-  const videoTime = useRef({ currentTime: 0 }); // Proxy for smooth scrubbing
+  const textRef = useRef(null);
+  const progressRef = useRef(null);
+  const scrollPromptRef = useRef(null);
+  
+  // State to track if video is ready to prevent white flashes
+  const [isVideoReady, setIsVideoReady] = useState(false);
 
-  useEffect(() => {
+useEffect(() => {
+    // 1. FIX: Declare ctx at the very top
+    let ctx; 
+
     const video = videoRef.current;
     
-    // Ensure video is ready for manipulation
-    if (video) {
-        video.pause();
-        video.currentTime = 0;
-        video.preload = "auto";
+    // Safety check: ensure video exists
+    if (!video) return;
+
+    // 2. Prepare Video
+    video.pause();
+    video.currentTime = 0;
+    video.preload = "auto";
+    
+    // Define the animation function
+    function initScrollAnimation(duration) {
+       ctx = gsap.context(() => {
+        
+        const tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: containerRef.current,
+            start: "top top",
+            end: "+=300%", 
+            pin: true,
+            scrub: 0.5, 
+          },
+        });
+
+        // A. Animate Video Time
+        tl.to(video, {
+          currentTime: duration,
+          ease: "none",
+        });
+
+        // B. Animate Progress Bar
+        tl.fromTo(progressRef.current, 
+            { scaleX: 0 },
+            { scaleX: 1, ease: "none" },
+            "<" 
+        );
+
+        // C. Fade out Prompt
+        tl.to(scrollPromptRef.current, {
+            opacity: 0,
+            duration: 0.5 
+        }, 0);
+
+        // D. Parallax Text
+        tl.to(textRef.current, {
+            y: -100, 
+            opacity: 0, 
+            ease: "power1.in"
+        }, "<");
+
+      }, containerRef);
     }
 
-    const ctx = gsap.context(() => {
-      // 1. Setup the ScrollTrigger
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: containerRef.current,
-          start: "top top",
-          end: "+=400%", // Scroll distance (4x screen height for slow playback)
-          pin: true,
-          scrub: 1, // 1 second smoothing delay
-          onUpdate: (self) => {
-             // Optional: You can fade out text or elements here based on self.progress
-          }
-        },
-      });
+    // Wait for metadata
+    const handleLoadedMetadata = () => {
+      setIsVideoReady(true);
+      initScrollAnimation(video.duration);
+    };
 
-      // 2. Animate the Video via Proxy
-      // We animate the proxy object's 'currentTime' property, then apply it to the video.
-      // This decoupling prevents stuttering.
-      if (video) {
-        // Wait for metadata to know duration, or default to a safe guess (e.g. 5s)
-        const duration = video.duration || 5; 
-        
-        tl.to(videoTime.current, {
-            currentTime: duration,
-            ease: "none",
-            onUpdate: () => {
-                // Apply the time to the video element
-                if (video.readyState >= 2) {
-                    video.currentTime = videoTime.current.currentTime;
-                }
-            }
-        });
-      }
+    // Logic to trigger animation
+    if (video.readyState >= 1) {
+      setIsVideoReady(true);
+      initScrollAnimation(video.duration);
+    } else {
+      video.addEventListener("loadedmetadata", handleLoadedMetadata);
+    }
 
-    }, containerRef);
-
-    return () => ctx.revert();
+    return () => {
+      video.removeEventListener("loadedmetadata", handleLoadedMetadata);
+      if (ctx) ctx.revert();
+    };
   }, []);
-
   return (
     <section
       ref={containerRef}
       className="relative h-screen w-full bg-black overflow-hidden flex flex-col items-center justify-center"
     >
-      {/* THE MAIN VIDEO 
-        object-cover ensures it fills the screen like a background.
-      */}
+      {/* 1. Loading State to prevent white flash */}
+      {!isVideoReady && (
+         <div className="absolute inset-0 bg-black z-20 flex items-center justify-center text-white/30">
+            Loading...
+         </div>
+      )}
+
+      {/* 2. VIDEO */}
       <video
         ref={videoRef}
         src="/videos/payasam.mp4"
@@ -279,12 +114,169 @@ export default function VideoScrollSection() {
         className="absolute inset-0 w-full h-full object-cover"
       />
 
-      {/* Optional Overlay Text that stays on top */}
-      <div className="absolute z-10 text-center pointer-events-none mix-blend-overlay">
+      {/* 3. OVERLAY TEXT */}
+      <div 
+        ref={textRef} 
+        className="absolute z-10 text-center pointer-events-none mix-blend-overlay"
+      >
         <h2 className="text-white text-4xl md:text-7xl font-serif font-bold opacity-80">
           Tradition Served
         </h2>
       </div>
+
+      {/* 4. SCROLL PROMPT (Fixes "Is the website ended?") */}
+      <div 
+        ref={scrollPromptRef}
+        className="absolute bottom-10 z-20 flex flex-col items-center gap-2 pointer-events-none animate-bounce"
+      >
+        <span className="text-white/70 text-sm uppercase tracking-widest font-light">
+          Scroll to Explore
+        </span>
+        <svg 
+            xmlns="http://www.w3.org/2000/svg" 
+            fill="none" 
+            viewBox="0 0 24 24" 
+            strokeWidth={1.5} 
+            stroke="currentColor" 
+            className="w-6 h-6 text-white/70"
+        >
+          <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+        </svg>
+      </div>
+
+      {/* 5. PROGRESS BAR (Shows how much video is left) */}
+      <div className="absolute bottom-0 left-0 w-full h-2 bg-white/10 z-30">
+        <div 
+            ref={progressRef}
+            className="h-full bg-[#00CED1] origin-left scale-x-0" 
+            // Note: I used your Famto brand color (#00CED1) here, change if needed for Ambis Kitchen
+        ></div>
+      </div>
     </section>
   );
 }
+
+
+// "use client";
+// import { useEffect, useRef, useState } from "react";
+// import gsap from "gsap";
+// import ScrollTrigger from "gsap/ScrollTrigger";
+
+// gsap.registerPlugin(ScrollTrigger);
+
+// export default function VideoScrollSection() {
+//   const containerRef = useRef(null);
+//   const videoRef = useRef(null);
+//   const progressRef = useRef(null);
+//   const textRef = useRef(null);
+//   const promptRef = useRef(null);
+
+//   const [isReady, setIsReady] = useState(false);
+
+//   useEffect(() => {
+//     const video = videoRef.current;
+
+//     if (!video) return;
+
+//     const loadVideo = () => {
+//       setIsReady(true);
+//     };
+
+//     if (video.readyState >= 2) loadVideo();
+//     else video.addEventListener("loadeddata", loadVideo);
+
+//     return () => video.removeEventListener("loadeddata", loadVideo);
+//   }, []);
+
+//   useEffect(() => {
+//     if (!isReady) return;
+
+//     const video = videoRef.current;
+//     const container = containerRef.current;
+//     const duration = video.duration;
+
+//     // GSAP performant setters
+//     const setProgress = gsap.quickSetter(progressRef.current, "scaleX");
+//     const setTextY = gsap.quickSetter(textRef.current, "y", "px");
+//     const setTextOpacity = gsap.quickSetter(textRef.current, "opacity");
+//     const setPromptOpacity = gsap.quickSetter(promptRef.current, "opacity");
+
+//     let pendingTime = null;
+
+//     const applyVideoTime = () => {
+//       if (pendingTime !== null) {
+//         if (video.fastSeek) video.fastSeek(pendingTime);
+//         else video.currentTime = pendingTime;
+//         pendingTime = null;
+//       }
+//       requestAnimationFrame(applyVideoTime);
+//     };
+
+//     requestAnimationFrame(applyVideoTime);
+
+//     const st = ScrollTrigger.create({
+//       trigger: container,
+//       start: "top top",
+//       end: "+=300%",
+//       scrub: 0.3,
+//       pin: true,
+//       onUpdate: (self) => {
+//         const p = self.progress;
+//         pendingTime = p * duration;
+
+//         setProgress(p);
+//         setPromptOpacity(1 - p * 2);
+//         setTextY(-p * 120);
+//         setTextOpacity(1 - p * 1.5);
+//       },
+//     });
+
+//     return () => {
+//       st.kill();
+//     };
+//   }, [isReady]);
+
+//   return (
+//     <section
+//       ref={containerRef}
+//       className="relative bg-black overflow-hidden"
+//     >
+//       <div className="sticky top-0 h-screen w-full flex items-center justify-center">
+//         <video
+//           ref={videoRef}
+//           src="/videos/payasam.mp4"
+//           playsInline
+//           preload="auto"
+//           className="w-full h-full object-cover"
+//         />
+
+//         {/* PARALLAX TEXT */}
+//         <div
+//           ref={textRef}
+//           className="absolute text-white text-5xl font-bold tracking-tight"
+//           style={{ willChange: "transform, opacity" }}
+//         >
+//           Tradition Served ✨
+//         </div>
+
+//         {/* SCROLL PROMPT */}
+//         <div
+//           ref={promptRef}
+//           className="absolute bottom-10 text-white opacity-75 text-sm"
+//           style={{ willChange: "opacity" }}
+//         >
+//           Scroll to Explore ↓
+//         </div>
+
+//         {/* PROGRESS BAR */}
+//         <div className="absolute bottom-0 left-0 w-full h-1 bg-white/20">
+//           <div
+//             ref={progressRef}
+//             className="h-full bg-white origin-left scale-x-0"
+//             style={{ willChange: "transform" }}
+//           />
+//         </div>
+//       </div>
+//     </section>
+//   );
+// }

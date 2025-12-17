@@ -1,30 +1,3 @@
-// import { Geist, Geist_Mono } from "next/font/google";
-// import "./globals.css";
-// import Header from "./components/Header";
-// import Footer from "./components/Footer";
-
-// const geistSans = Geist({
-//   variable: "--font-geist-sans",
-//   subsets: ["latin"],
-// });
-
-// export const metadata = {
-//   title: "Ambis Kitchen | Home-cooked Meals",
-//   description: "Fresh homemade food delivered with love in Trivandrum.",
-// };
-
-// export default function RootLayout({ children }) {
-//   return (
-//     <html lang="en">
-//       <body className={`${geistSans.variable} antialiased`}>
-//         <Header />
-//         {children}
-//         {/* <Footer /> */}
-//       </body>
-//     </html>
-//   );
-// }
-
 import { Poppins } from "next/font/google";
 import "./globals.css";
 
@@ -43,6 +16,14 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+      <head>
+        <link 
+          rel="preload" 
+          as="image" 
+          href="/images/ambi.png"        // <-- change this to your hero image path
+          imageSrcSet="/images/ambi.png" // <-- same file
+        />
+      </head>
       {/* Applied the variable and font-sans globally */}
       <body className={`${poppins.variable} font-sans antialiased`}>
         {children}

@@ -6,6 +6,8 @@ import { motion, useScroll, useTransform, useSpring, useInView } from 'framer-mo
 import { ChefHat, Heart, Clock, Users, ArrowRight, Utensils, Star, Award, Leaf } from 'lucide-react';
 import Footer from '../components/Footer';
 import CustomCursor from '../components/CustomCursor';
+import { useRouter } from "next/navigation";
+
 
 // --- ANIMATION UTILITIES ---
 
@@ -47,7 +49,8 @@ const hoverScale = {
 const Counter = ({ from, to }) => {
   const nodeRef = useRef(null);
   const isInView = useInView(nodeRef, { once: true, margin: "-100px" });
-  
+  const router = useRouter();
+
   useEffect(() => {
     if (!isInView) return;
     const node = nodeRef.current;
@@ -55,7 +58,7 @@ const Counter = ({ from, to }) => {
       value: from,
       duration: 2000,
     };
-    
+
     let startTimestamp = null;
     const step = (timestamp) => {
       if (!startTimestamp) startTimestamp = timestamp;
@@ -84,22 +87,22 @@ export default function AboutPage() {
 
   return (
     <div ref={containerRef} className="min-h-screen bg-neutral-950 cursor-none text-neutral-200 font-sans selection:bg-amber-500 selection:text-white">
-      
+
       <CustomCursor />
       {/* --- HERO SECTION WITH PARALLAX --- */}
       <section className="relative h-screen flex items-center justify-center overflow-hidden">
         <motion.div style={{ y: yHero, opacity: opacityHero }} className="absolute inset-0 z-0">
-          <Image 
-            src="/images/hero.png" 
-            alt="Ambis Kitchen Atmosphere" 
-            fill 
-            className="object-cover opacity-60"
+          <Image
+            src="/images/hero.png"
+            alt="Ambis Kitchen Atmosphere"
+            fill
+            className="opacity-60"
             priority
           />
           {/* Gradient Overlay for text readability */}
           <div className="absolute inset-0 bg-gradient-to-t from-neutral-950 via-neutral-950/50 to-transparent" />
         </motion.div>
-        
+
         <div className="relative z-10 text-center px-4 max-w-5xl mx-auto mt-20">
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
@@ -110,8 +113,8 @@ export default function AboutPage() {
               Est. 2020 • Trivandrum
             </span>
           </motion.div>
-          
-          <motion.h1 
+
+          <motion.h1
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 0.8 }}
@@ -120,20 +123,20 @@ export default function AboutPage() {
             Taste the <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-orange-600">Soul</span> <br />
             of Real Food.
           </motion.h1>
-          
-          <motion.p 
+
+          <motion.p
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.5, duration: 0.8 }}
             className="text-lg md:text-2xl text-neutral-300 max-w-2xl mx-auto leading-relaxed"
           >
-            Where culinary artistry meets the comfort of home. 
+            Where culinary artistry meets the comfort of home.
             Experience the symphony of spices at Ambis Kitchen.
           </motion.p>
 
-          <motion.div 
-            initial={{ opacity: 0 }} 
-            animate={{ opacity: 1 }} 
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
             transition={{ delay: 1, duration: 1 }}
             className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
           >
@@ -150,7 +153,7 @@ export default function AboutPage() {
         <div className="absolute top-0 right-0 w-96 h-96 bg-amber-600/10 rounded-full blur-3xl -z-10" />
 
         <div className="grid lg:grid-cols-2 gap-16 items-center">
-          <motion.div 
+          <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
@@ -160,7 +163,7 @@ export default function AboutPage() {
               Not Just a Kitchen.<br />
               <span className="text-amber-500">It’s a Legacy.</span>
             </motion.h2>
-            
+
             <motion.div variants={fadeInUp} className="space-y-6 text-neutral-400 text-lg leading-relaxed">
               <p>
                 Ambis Kitchen started in 2020 amidst a changing world. We noticed that while food delivery was booming, the <em className="text-white">essence</em> of a home-cooked meal was fading away.
@@ -172,18 +175,22 @@ export default function AboutPage() {
                 "We don't send out food we wouldn't serve to our own children."
               </blockquote>
             </motion.div>
-            
-            <motion.button 
-              variants={fadeInUp}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="mt-8 px-8 py-4 bg-transparent border border-amber-500 text-amber-500 hover:bg-amber-500 hover:text-neutral-900 rounded-full font-semibold transition-all duration-300 flex items-center gap-2"
-            >
-              Read Our Full History <ArrowRight className="w-4 h-4" />
-            </motion.button>
+
+           <motion.button
+  variants={fadeInUp}
+ onClick={() => router.push("/blog/kerala-desserts-ambi")}
+  whileHover={{ scale: 1.05 }}
+  whileTap={{ scale: 0.95 }}
+  className="mt-8 px-8 py-4 bg-transparent border border-amber-500 
+  text-amber-500 hover:bg-amber-500 hover:text-neutral-900 rounded-full 
+  font-semibold transition-all duration-300 flex items-center gap-2"
+>
+  Read Our Full History <ArrowRight className="w-4 h-4" />
+</motion.button>
+
           </motion.div>
 
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
@@ -191,10 +198,10 @@ export default function AboutPage() {
             className="relative"
           >
             <div className="relative h-[600px] w-full rounded-2xl overflow-hidden shadow-2xl border border-neutral-800">
-              <Image 
-                src="/images/hero.jpg" 
-                alt="Chef plating food" 
-                fill 
+              <Image
+                src="/images/indian.png"
+                alt="Chef plating food"
+                fill
                 className="object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
@@ -204,7 +211,7 @@ export default function AboutPage() {
               </div>
             </div>
             {/* Floating Element */}
-            <motion.div 
+            <motion.div
               animate={{ y: [0, -20, 0] }}
               transition={{ repeat: Infinity, duration: 5, ease: "easeInOut" }}
               className="absolute -bottom-10 -left-10 bg-neutral-900 p-6 rounded-xl border border-neutral-800 shadow-xl max-w-xs hidden md:block"
@@ -225,7 +232,7 @@ export default function AboutPage() {
       </section>
 
 
-       {/* --- PHILOSOPHY CARDS --- */}
+      {/* --- PHILOSOPHY CARDS --- */}
 
       <section className="py-20 bg-[#F0C944]">
 
@@ -319,10 +326,10 @@ export default function AboutPage() {
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             {[
-              { value: 10000, label: "Happy Customers", suffix: "+" },
+              { value: 200000, label: "Happy Customers", suffix: "+" },
               { value: 120, label: "Dishes Served", suffix: "+" },
-              { value: 50000, label: "Orders Fulfilled", suffix: "+" },
-              { value: 98, label: "Positive Reviews", suffix: "%" },
+              { value: 500000, label: "Orders Fulfilled", suffix: "+" },
+              { value: 99, label: "Positive Reviews", suffix: "%" },
             ].map((stat, index) => (
               <div key={index} className="space-y-2">
                 <div className="text-4xl md:text-5xl font-bold text-white font-mono">
@@ -339,21 +346,21 @@ export default function AboutPage() {
       {/* --- GALLERY MASONRY (New) --- */}
       <section className="py-12 bg-neutral-900/50">
         <div className="max-w-7xl mx-auto px-6">
-           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 h-[500px] md:h-[600px]">
-              <div className="col-span-2 row-span-2 relative rounded-2xl overflow-hidden group">
-                <Image src="/images/ambis.jpeg" alt="Food" fill className="object-fill group-hover:scale-110 transition-transform duration-700" />
-                <div className="absolute inset-0 bg-black/30 group-hover:bg-transparent transition-colors" />
-              </div>
-              <div className="relative rounded-2xl overflow-hidden group">
-                 <Image src="/images/ada.jpg" alt="Food" fill className="object-cover group-hover:scale-110 transition-transform duration-700" />
-              </div>
-              <div className="relative rounded-2xl overflow-hidden group">
-                 <Image src="/images/palada.jpg" alt="Food" fill className="object-cover group-hover:scale-110 transition-transform duration-700" />
-              </div>
-              <div className="col-span-2 md:col-span-2 relative rounded-2xl overflow-hidden group">
-                 <Image src="/images/prize.jpeg" alt="Food" fill className="object-contain group-hover:scale-110 transition-transform duration-700" />
-              </div>
-           </div>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 h-[500px] md:h-[600px]">
+            <div className="col-span-2 row-span-2 relative rounded-2xl overflow-hidden group">
+              <Image src="/images/padmanabhan.jpg" alt="Food" fill className="object-fill group-hover:scale-110 transition-transform duration-700" />
+              <div className="absolute inset-0 bg-black/30 group-hover:bg-transparent transition-colors" />
+            </div>
+            <div className="relative rounded-2xl overflow-hidden group">
+              <Image src="/images/ada.jpg" alt="Food" fill className="object-cover group-hover:scale-110 transition-transform duration-700" />
+            </div>
+            <div className="relative rounded-2xl overflow-hidden group">
+              <Image src="/images/attukal.jpg" alt="Food" fill className="object-cover group-hover:scale-110 transition-transform duration-700" />
+            </div>
+            <div className="col-span-2 md:col-span-2 relative rounded-2xl overflow-hidden group">
+              <Image src="/images/prize.jpeg" alt="Food" fill className="object-contain group-hover:scale-110 transition-transform duration-700" />
+            </div>
+          </div>
         </div>
       </section>
 
@@ -363,7 +370,7 @@ export default function AboutPage() {
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] border border-amber-400 rounded-full opacity-20 animate-[spin_20s_linear_infinite]" />
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] border border-amber-700 rounded-full opacity-20 animate-[spin_15s_linear_infinite_reverse]" />
 
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           whileInView={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5 }}
@@ -376,10 +383,11 @@ export default function AboutPage() {
             Your table is waiting (or we can bring the table to you).
           </p>
           <div className="flex flex-col md:flex-row justify-center gap-4">
-            <button className="bg-amber-500 hover:bg-amber-600 text-neutral-950 px-10 py-4 rounded-full font-bold text-lg transition-all hover:scale-105 shadow-[0_0_20px_rgba(245,158,11,0.5)]">
+            <button onClick={() => window.open("https://order.famto.in/merchant/M250117/66e1d938b94cc5e6ad6cb1e0/products", "_blank")}
+              className="bg-amber-500 hover:bg-amber-600 text-neutral-950 px-10 py-4 rounded-full font-bold text-lg transition-all hover:scale-105 shadow-[0_0_20px_rgba(245,158,11,0.5)]">
               Order Now
             </button>
-        
+
           </div>
         </motion.div>
       </section>

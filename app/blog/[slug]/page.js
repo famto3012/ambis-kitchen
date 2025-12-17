@@ -44,7 +44,7 @@ export default function BlogPostDetail({ params }) {
   return (
     <article className="bg-[#050505] min-h-screen text-stone-200 relative overflow-hidden selection:bg-amber-500/30 cursor-none">
 
-<CustomCursor />
+      <CustomCursor />
       {/* Top Progress Bar */}
       <motion.div
         className="fixed top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-amber-700 via-amber-500 to-yellow-400 origin-left z-50 shadow-[0_0_15px_rgba(245,158,11,0.5)]"
@@ -102,6 +102,18 @@ export default function BlogPostDetail({ params }) {
             alt={post.title}
             className="w-full h-full object-cover"
           />
+
+          {/* <Image
+            src={post.image}
+            alt="Hero"
+            priority
+            className="w-full h-full object-cover"
+            width={1920}
+            height={1080}
+            sizes="100vw"
+            quality={80}
+          /> */}
+
           <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-[#050505]/40 to-transparent" />
         </motion.div>
 
