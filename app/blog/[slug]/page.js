@@ -6,6 +6,13 @@ import { useRef, use } from "react";
 import { blogData } from "../../data/page";
 import CustomCursor from "../../components/CustomCursor";
 
+export function generateStaticParams() {
+  return blogData.map((post) => ({
+    slug: post.slug,
+  }));
+}
+
+
 // Animation
 const fadeInUp = {
   hidden: { opacity: 0, y: 40 },
@@ -17,8 +24,7 @@ const fadeInUp = {
 };
 
 export default function BlogPostDetail({ params }) {
-  const resolvedParams = use(params);
-  const slug = resolvedParams.slug;
+  const { slug } = params;
   const post = blogData.find((p) => p.slug === slug);
 
   const containerRef = useRef(null);
