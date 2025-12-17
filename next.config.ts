@@ -1,9 +1,9 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  output: 'export',
-  trailingSlash: true,       // <-- add this
-  images: { unoptimized: true }
+  output: 'standalone',    // Build for Node.js server
+  images: { unoptimized: true },
+  reactStrictMode: true,
 };
 
 export default nextConfig;
