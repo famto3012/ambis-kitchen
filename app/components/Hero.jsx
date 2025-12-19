@@ -330,6 +330,7 @@ export default function Hero() {
     // LIGHT WEIGHT PARALLAX
     const yText = useTransform(scrollY, [0, 400], [0, 80]);
     const yImage = useTransform(scrollY, [0, 400], [0, 40]);
+    const logoScale = useTransform(scrollY, [0, 300], [1, 0.8]);
 
     return (
         <section
@@ -339,7 +340,7 @@ export default function Hero() {
             {/* Clean gradient background */}
             <div className="absolute inset-0 bg-gradient-to-br from-[#120f2e] via-[#050414] to-[#0f0b05]" />
 
-              <motion.div
+            <motion.div
                 animate={{ scale: [1, 1.2, 1], opacity: [0.2, 0.3, 0.2] }}
                 transition={{ duration: 10, repeat: Infinity }}
                 className="absolute top-[10%] left-[-20%] w-[300px] h-[300px] md:w-[500px] md:h-[500px] bg-orange-200 rounded-full blur-[80px] md:blur-[120px] z-0"
@@ -362,14 +363,29 @@ export default function Hero() {
                 transition={{ duration: 14, repeat: Infinity }}
                 className="absolute bottom-[10%] right-[-15%] w-[400px] h-[400px] bg-yellow-600/20 rounded-full blur-[120px]"
             />
-
+            <div className="absolute top-0 left-0 w-full z-50 px-6 py-6 flex justify-between items-start">
+                <motion.div
+                    style={{ scale: logoScale }}
+                    initial={{ y: -50, opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    transition={{ duration: 0.8, type: "spring" }}
+                    className="relative group"
+                >
+                    <div className="absolute inset-0 bg-amber-500/50 blur-xl rounded-full opacity-0 group-hover:opacity-40 transition-opacity duration-500"></div>
+                    <img
+                        src="/images/ambi.png"
+                        alt="Ambi's Kitchen Logo"
+                        className="w-24 h-24 object-contain drop-shadow-lg"
+                    />
+                </motion.div>
+            </div>
             {/* MAIN CONTENT */}
             <div className="relative z-10 container mx-auto px-6 pt-16 flex flex-col md:flex-row items-center gap-16">
 
-     
+
                 {/* LEFT SIDE TEXT */}
-                 <motion.div style={{ y: yText }} className="flex-1 text-center md:text-left">
-{/* 
+                <motion.div style={{ y: yText }} className="flex-1 text-center md:text-left">
+                    {/* 
                      <div className="absolute inset-0 -z-10">
         <Image
             src="/images/tvm.jpg" // replace with your Trivandrum image
@@ -396,94 +412,94 @@ export default function Hero() {
                         className="space-y-4"
                     >
                         {/* Title */}
-                 <h1 className="text-6xl md:text-8xl font-serif font-bold leading-tight">
-                    Ambi's Kitchen
-                </h1>
+                        <h1 className="text-6xl md:text-8xl font-serif font-bold leading-tight">
+                            Ambi's Kitchen
+                        </h1>
 
-                {/* Subtitle */}
-               <motion.p
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.7, delay: 0.3 }}
-                    className="text-2xl sm:text-4xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-amber-200 via-yellow-500 to-amber-200"
+                        {/* Subtitle */}
+                        <motion.p
+                            initial={{ opacity: 0, y: 10 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.7, delay: 0.3 }}
+                            className="text-2xl sm:text-4xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-amber-200 via-yellow-500 to-amber-200"
+                        >
+                            The Real Taste of Thripunithura
+                        </motion.p>
+                    </motion.div>
+
+
+                    <motion.p
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ duration: 0.7, delay: 0.2 }}
+                        className="text-stone-300 text-lg md:text-xl mt-4 max-w-lg"
+                    >
+                        From <b>Ambi's Kitchen</b> to your dining table — Palada Payasam & authentic Kerala feasts.
+                    </motion.p>
+
+                    {/* 3D LOGO */}
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.7, delay: 0.3 }}
+                        className="mt-10 flex justify-center"
+                    >
+                        <ThreeDTilt className="w-56 h-56">
+                            <Image
+                                src="/images/ambilogo.png"
+                                alt="Ambi"
+                                width={300}
+                                height={300}
+                                className="w-full h-full object-contain"
+                            />
+                        </ThreeDTilt>
+                    </motion.div>
+                </motion.div>
+
+                {/* RIGHT SIDE IMAGE */}
+                {/* RIGHT SIDE IMAGE */}
+                <motion.div
+                    style={{ y: yImage }}
+                    initial={{ opacity: 0, scale: 0.95 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.8 }}
+                    className="flex-1 max-w-[450px]"
                 >
-                    The Real Taste of Thripunithura
-                </motion.p>
-            </motion.div>
+                    <motion.div
+                        className="absolute -top-2 right-0 md:-right-8 z-20 pointer-events-none" // Added pointer-events-none so it doesn't interfere with 3D hover
+                        initial={{ scale: 0 }}
+                        animate={{ scale: 1 }}
+                        transition={{ delay: 0.8, type: "spring" }}
+                    >
+                        <RotatingSeal text="•AMBIS KITCHEN •AUTHENTIC •TASTY " />
+                    </motion.div>
 
 
-            <motion.p
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.7, delay: 0.2 }}
-                className="text-stone-300 text-lg md:text-xl mt-4 max-w-lg"
-            >
-                From <b>Ambi's Kitchen</b> to your dining table — Palada Payasam & authentic Kerala feasts.
-            </motion.p>
-
-            {/* 3D LOGO */}
-             <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.7, delay: 0.3 }}
-                className="mt-10 flex justify-center md:justify-start"
-            >
-                <ThreeDTilt className="w-32 h-32">
-                    <Image
-                        src="/images/ambi.png"
-                        alt="Ambi"
-                        width={300}
-                        height={300}
-                        className="w-full h-full object-contain"
-                    />
-                </ThreeDTilt>
-            </motion.div>
-        </motion.div> 
-
-{/* RIGHT SIDE IMAGE */ }
-{/* RIGHT SIDE IMAGE */ }
-<motion.div
-    style={{ y: yImage }}
-    initial={{ opacity: 0, scale: 0.95 }}
-    animate={{ opacity: 1, scale: 1 }}
-    transition={{ duration: 0.8 }}
-    className="flex-1 max-w-[450px]"
->
-    <motion.div
-        className="absolute -top-2 right-0 md:-right-8 z-20 pointer-events-none" // Added pointer-events-none so it doesn't interfere with 3D hover
-        initial={{ scale: 0 }}
-        animate={{ scale: 1 }}
-        transition={{ delay: 0.8, type: "spring" }}
-    >
-        <RotatingSeal text="•AMBIS KITCHEN •AUTHENTIC •TASTY " />
-    </motion.div>
-
-
-    {/* Added floating animation wrapper */}
-    <motion.div
-        animate={{
-            y: [0, -8, 0],
-        }}
-        transition={{
-            duration: 4,
-            repeat: Infinity,
-            ease: "easeInOut",
-        }}
-    >
-        <ThreeDTilt className="w-full aspect-[4/5]">
-            <div className="w-full h-full rounded-2xl overflow-hidden border border-white/10 backdrop-blur-lg bg-white/5">
-                <Image
-                    src="/images/hero.png"
-                    width={1200}
-                    height={700}
-                    alt="Hero"
-                    priority
-                    className="w-full h-full object-cover"
-                />
-            </div>
-        </ThreeDTilt>
-    </motion.div>
-</motion.div>
+                    {/* Added floating animation wrapper */}
+                    <motion.div
+                        animate={{
+                            y: [0, -8, 0],
+                        }}
+                        transition={{
+                            duration: 4,
+                            repeat: Infinity,
+                            ease: "easeInOut",
+                        }}
+                    >
+                        <ThreeDTilt className="w-full aspect-[4/5]">
+                            <div className="w-full h-full rounded-2xl overflow-hidden border border-white/10 backdrop-blur-lg bg-white/5">
+                                <Image
+                                    src="/images/hero.png"
+                                    width={1200}
+                                    height={700}
+                                    alt="Hero"
+                                    priority
+                                    className="w-full h-full object-cover"
+                                />
+                            </div>
+                        </ThreeDTilt>
+                    </motion.div>
+                </motion.div>
 
             </div >
         </section >

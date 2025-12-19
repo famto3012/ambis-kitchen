@@ -24,7 +24,7 @@ const menuItems = [
   },
   {
     id: 3,
-    name: "Sadya Curries (Bulk)",
+    name: "Sadya Curries",
     description: "Aviyal, Thoran, Olan, Kalan, Erissery, Pachadi, Sambar & Rasam.",
     price: "Available per Kg",
     img: "/images/thoran.jpg",
@@ -33,7 +33,7 @@ const menuItems = [
   {
     id: 4,
     name: "Kerala Chips & Sides",
-    description: "Banana Chips (Upperi), Sarkara Varatti, Pappadam & Kondattam (Curd Chillies).",
+    description: "Banana Chips, Sarkara Varatti, Pappadam & Kondattam (Curd Chillies).",
     price: "Market Price",
     img: "/images/snacks.jpg",
     tag: "Crunchy"
@@ -60,6 +60,22 @@ const menuItems = [
     description: "Vegetable Stew, Channa Masala, Appam & Chappathi...",
     price: "Pre-order Only",
     img: "/images/dinner.png",
+    tag: "Dinner"
+  },
+  {
+    id: 8,
+    name: "Sweets",
+    description: "Halwa, Laddoo, Jilebi, Mysore paav ..",
+    price: "Pre-order Only",
+    img: "/images/sweets.png",
+    tag: "Dinner"
+  },
+  {
+    id: 9,
+    name: "Traditional Dishes",
+    description: "Chundakka VathaKuzhambu,Mezhukku puratty",
+    price: "Pre-order Only",
+    img: "/images/vathakuzhamb.png",
     tag: "Dinner"
   },
 ];
