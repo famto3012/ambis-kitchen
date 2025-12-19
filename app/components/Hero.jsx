@@ -389,7 +389,7 @@ export default function Hero() {
                     </motion.p>
 
                     {/* 3D LOGO */}
-                    {/* <motion.div
+                    <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.7, delay: 0.3 }}
@@ -404,43 +404,53 @@ export default function Hero() {
                                 className="w-full h-full object-contain"
                             />
                         </ThreeDTilt>
-                    </motion.div> */}
+                    </motion.div>
                 </motion.div>
 
                 {/* RIGHT SIDE IMAGE */}
-               {/* RIGHT SIDE IMAGE */}
-<motion.div
-    style={{ y: yImage }}
-    initial={{ opacity: 0, scale: 0.95 }}
-    animate={{ opacity: 1, scale: 1 }}
-    transition={{ duration: 0.8 }}
-    className="flex-1 max-w-[450px]"
->
-    {/* Added floating animation wrapper */}
-    <motion.div
-        animate={{
-            y: [0, -8, 0],
-        }}
-        transition={{
-            duration: 4,
-            repeat: Infinity,
-            ease: "easeInOut",
-        }}
-    >
-        <ThreeDTilt className="w-full aspect-[4/5]">
-            <div className="w-full h-full rounded-2xl overflow-hidden border border-white/10 backdrop-blur-lg bg-white/5">
-                <Image
-                    src="/images/hero.png"
-                    width={1200}
-                    height={700}
-                    alt="Hero"
-                    priority
-                    className="w-full h-full object-cover"
-                />
-            </div>
-        </ThreeDTilt>
-    </motion.div>
-</motion.div>
+                {/* RIGHT SIDE IMAGE */}
+                <motion.div
+                    style={{ y: yImage }}
+                    initial={{ opacity: 0, scale: 0.95 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.8 }}
+                    className="flex-1 max-w-[450px]"
+                >
+                    <motion.div
+                        className="absolute -top-2 right-0 md:-right-8 z-20 pointer-events-none" // Added pointer-events-none so it doesn't interfere with 3D hover
+                        initial={{ scale: 0 }}
+                        animate={{ scale: 1 }}
+                        transition={{ delay: 0.8, type: "spring" }}
+                    >
+                        <RotatingSeal text="•AMBIS KITCHEN •AUTHENTIC •TASTY " />
+                    </motion.div>
+
+
+                    {/* Added floating animation wrapper */}
+                    <motion.div
+                        animate={{
+                            y: [0, -8, 0],
+                        }}
+                        transition={{
+                            duration: 4,
+                            repeat: Infinity,
+                            ease: "easeInOut",
+                        }}
+                    >
+                        <ThreeDTilt className="w-full aspect-[4/5]">
+                            <div className="w-full h-full rounded-2xl overflow-hidden border border-white/10 backdrop-blur-lg bg-white/5">
+                                <Image
+                                    src="/images/hero.png"
+                                    width={1200}
+                                    height={700}
+                                    alt="Hero"
+                                    priority
+                                    className="w-full h-full object-cover"
+                                />
+                            </div>
+                        </ThreeDTilt>
+                    </motion.div>
+                </motion.div>
 
             </div>
         </section>
@@ -484,5 +494,30 @@ function ThreeDTilt({ children, className }) {
                 {children}
             </motion.div>
         </motion.div>
+    );
+}
+
+function RotatingSeal({ text }) {
+    return (
+        <div className="relative w-20 h-20 md:w-32 md:h-32 flex items-center justify-center">
+            <motion.div
+                className="absolute inset-0 w-full h-full"
+                animate={{ rotate: 360 }}
+                transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
+            >
+                <svg viewBox="0 0 100 100" width="100%" height="100%">
+                    <defs>
+                        <path id="circlePath" d="M 50, 50 m -37, 0 a 37,37 0 1,1 74,0 a 37,37 0 1,1 -74,0" />
+                    </defs>
+                    <text fontSize="10.5" fontWeight="bold" fill="#fbbf24" letterSpacing="1.1">
+                        <textPath href="#circlePath">{text}</textPath>
+                    </text>
+                </svg>
+            </motion.div>
+            <div className="absolute inset-0 m-auto w-12 h-12 md:w-16 md:h-16 bg-amber-500 rounded-full flex flex-col items-center justify-center shadow-lg shadow-amber-500/30 text-black z-10">
+                <span className="text-xl md:text-2xl font-bold leading-none">5</span>
+                <span className="text-[7px] md:text-[9px] font-bold uppercase">Years</span>
+            </div>
+        </div>
     );
 }

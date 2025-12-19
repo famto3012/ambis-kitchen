@@ -126,7 +126,7 @@ export const blogData = [
     date: "Dec 01, 2025",
     readTime: "22 min read",
     category: "Featured",
-    image: "/images/attukal.jpeg",
+    image: "/images/attukal.jpg",
     author: "Chef Ambi",
     isFeatured: false,
     content: `

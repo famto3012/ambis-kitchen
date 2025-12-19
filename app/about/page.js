@@ -355,7 +355,7 @@ export default function AboutPage() {
               <Image src="/images/ada.jpg" alt="Food" fill className="object-cover group-hover:scale-110 transition-transform duration-700" />
             </div>
             <div className="relative rounded-2xl overflow-hidden group">
-              <Image src="/images/attukal.jpg" alt="Food" fill className="object-cover group-hover:scale-110 transition-transform duration-700" />
+              <Image src="/images/ambis.jpg" alt="Food" fill className="object-cover group-hover:scale-110 transition-transform duration-700" />
             </div>
             <div className="col-span-2 md:col-span-2 relative rounded-2xl overflow-hidden group">
               <Image src="/images/prize.jpeg" alt="Food" fill className="object-contain group-hover:scale-110 transition-transform duration-700" />
