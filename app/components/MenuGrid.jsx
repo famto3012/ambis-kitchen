@@ -17,7 +17,7 @@ const menuItems = [
   {
     id: 2,
     name: "Ghee Boli",
-    description: "Signature Trivandrum Large Boli, Small Boli & Milk (Paal) Boli.",
+    description: "Signature Trivandrum Large Boli, Small Boli & Milk (Paal) Boli...",
     price: "Starts @ ₹120/Pack",
     img: "/images/bolis.jpg",
     tag: "Must Try"
@@ -49,10 +49,18 @@ const menuItems = [
   {
     id: 6,
     name: "Traditional Snacks",
-    description: "Unniyappam, Neyyappam, Achappam & Kuzhalappam.",
+    description: "Unniyappam, Neyyappam, Achappam & Kuzhalappam...",
     price: "Pre-order Only",
     img: "/images/traditional.png",
     tag: "Festive"
+  },
+  {
+    id: 7,
+    name: "Dinners",
+    description: "Vegetable Stew, Channa Masala, Appam & Chappathi...",
+    price: "Pre-order Only",
+    img: "/images/dinner.png",
+    tag: "Dinner"
   },
 ];
 
